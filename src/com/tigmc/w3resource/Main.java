@@ -4,6 +4,10 @@ package com.tigmc.w3resource;
 
 import com.sun.xml.internal.fastinfoset.util.CharArray;
 
+import java.io.FileReader;
+import java.io.Reader;
+import java.nio.charset.Charset;
+
 import java.io.BufferedReader;
 import java.io.Console;
 
@@ -11,24 +15,62 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ex39();
+
+        ex42();
 
     }
 
-    private static void ex39() {
+    private static void ex42() {
 
-        int totalCount = 0;
-        char[] chars = {'1', '1', '1'};
-        for (int i = 0; i <= 2; i++) {
-            for (int j = 1; j <= 4; j++) {
-                chars[2-i] = 'z'; //Character.toChars(j);
-                totalCount++;
-                System.out.println(chars);
-            }
-            
-            System.out.println(totalCount);
+        Console console = System.console();
+        if (console == null) {
+            System.out.println("No console: non-interactive mode!");
+            System.exit(0);
         }
-        System.out.println(totalCount);
+
+        System.out.print("Enter your username: ");
+        String username = console.readLine();
+
+        System.out.print("Enter your password: ");
+        char[] password = console.readPassword();
+        String strPwd = new String(password);
+
+        String passport = console.readLine("Enter your %d (th) passport number: ", 2);
+
+        System.out.println("Hi " + username + ", your password is " +  strPwd);
+        System.out.println("Passport is " +  passport);
+
+    }
+
+    private static void ex41() {
+
+                int chr = 'Z';
+                System.out.println("The ASCII value of Z is :"+chr);
+            }
+
+
+    private static void ex40() {
+
+                System.out.println("List of available character sets: ");
+                for (String str : Charset.availableCharsets().keySet()) {
+                    System.out.println(str);
+                }
+            }
+
+
+    private static void ex39() {
+        int amount = 0;
+        for(int i = 1; i <= 4; i++){
+            for(int j = 1; j <= 4; j++){
+                for(int k = 1; k <= 4; k++){
+                    if(k != i && k != j && i != j){
+                        amount++;
+                        System.out.println(i + "" + j + "" + k);
+                    }
+                }
+            }
+        }
+        System.out.println("Total number of the three-digit-number is " + amount);
     }
 
     private static void ex38() {
