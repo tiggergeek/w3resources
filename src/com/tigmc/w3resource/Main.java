@@ -2,6 +2,8 @@ package com.tigmc.w3resource;
 
 //https://www.w3resource.com/java-exercises/basic/index.php
 
+import com.sun.xml.internal.fastinfoset.util.CharArray;
+
 import java.io.BufferedReader;
 import java.io.Console;
 
@@ -9,8 +11,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ex38();
+        ex39();
 
+    }
+
+    private static void ex39() {
+
+        int totalCount = 0;
+        char[] chars = {'1', '1', '1'};
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 1; j <= 4; j++) {
+                chars[2-i] = 'z'; //Character.toChars(j);
+                totalCount++;
+                System.out.println(chars);
+            }
+            
+            System.out.println(totalCount);
+        }
+        System.out.println(totalCount);
     }
 
     private static void ex38() {
